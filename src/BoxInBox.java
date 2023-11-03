@@ -44,6 +44,4 @@ public class BoxInBox {
     private boolean fits(int i, int j) {
         return i < j;
     }
-
-
 }
