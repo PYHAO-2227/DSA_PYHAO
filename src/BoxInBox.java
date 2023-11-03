@@ -31,7 +31,7 @@ public class BoxInBox {
         for (int j = 0; j < boxes.length; j++) {
             if (j == i) {
                 continue;
-            } else if (boxes[j] < boxes[i]) {
+            } else if (fits(boxes[j], boxes[i])) {
                 dp[i] = Math.max(dp[i], helper(boxes, j) + 1);
             } else {
                 continue;
@@ -40,4 +40,10 @@ public class BoxInBox {
         done[i] = true;
         return dp[i];
     }
+
+    private boolean fits(int i, int j) {
+        return i < j;
+    }
+
+
 }
