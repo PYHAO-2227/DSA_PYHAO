@@ -13,7 +13,7 @@ public class LC677 {
             children = new Node[26];
         }
     }
-    private Node root;
+    private final Node root;
 
     public LC677() {
         map = new HashMap<>();
