@@ -1,7 +1,7 @@
 package LeetCode;
 
 public class LC237 {
-    public void deleteNode(LC160.ListNode node) {
+    public void deleteNode(ListNode node) {
         if (node.next == null) {
             node = null;
         }
