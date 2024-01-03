@@ -1,4 +1,4 @@
-package LeetCode;
+package LeetCode.other;
 
 public class LC91 {
     public int numDecodings(String s) {

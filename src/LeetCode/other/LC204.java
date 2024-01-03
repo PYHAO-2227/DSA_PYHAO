@@ -1,4 +1,4 @@
-package LeetCode;
+package LeetCode.other;
 
 public class LC204 {
     public ListNode removeElements(ListNode head, int val) {

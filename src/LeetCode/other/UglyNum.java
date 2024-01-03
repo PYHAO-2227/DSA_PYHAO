@@ -1,4 +1,4 @@
-package LeetCode;
+package LeetCode.other;
 
 public class UglyNum {
     public boolean isUgly(int n) {

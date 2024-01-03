@@ -1,4 +1,4 @@
-package LeetCode;
+package LeetCode.other;
 
 public class LC61 {
     public ListNode rotateRight(ListNode head, int k) {

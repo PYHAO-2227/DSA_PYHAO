@@ -1,6 +1,6 @@
 package LeetCode.TreeAndGraph;
 
-import LeetCode.TreeNode;
+import LeetCode.other.TreeNode;
 
 public class LC543 {
     int max = 0;

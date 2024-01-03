@@ -1,4 +1,4 @@
-package LeetCode;
+package LeetCode.other;
 
 public class LC2 {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {

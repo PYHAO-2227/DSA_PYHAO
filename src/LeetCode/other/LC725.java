@@ -1,4 +1,4 @@
-package LeetCode;
+package LeetCode.other;
 
 public class LC725 {
     public ListNode[] splitListToParts(ListNode head, int k) {

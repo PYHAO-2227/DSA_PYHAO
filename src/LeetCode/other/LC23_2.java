@@ -1,4 +1,4 @@
-package LeetCode;
+package LeetCode.other;
 
 public class LC23_2 {
     public ListNode mergeKLists(ListNode[] lists) {

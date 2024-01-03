@@ -1,4 +1,4 @@
-package LeetCode;
+package LeetCode.other;
 
 public class LC1217 {
     public int minCostToMoveChips(int[] position) {

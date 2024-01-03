@@ -1,4 +1,4 @@
-package LeetCode;
+package LeetCode.other;
 
 public class LC328 {
     public ListNode oddEvenList(ListNode head) {

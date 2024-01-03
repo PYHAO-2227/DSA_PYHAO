@@ -1,4 +1,4 @@
-package LeetCode;
+package LeetCode.other;
 
 public class LC237 {
     public void deleteNode(ListNode node) {

@@ -1,6 +1,6 @@
 package LeetCode.LL;
 
-import LeetCode.ListNode;
+import LeetCode.other.ListNode;
 
 public class LC1669 {
     public ListNode mergeInBetween(ListNode list1, int a, int b, ListNode list2) {
