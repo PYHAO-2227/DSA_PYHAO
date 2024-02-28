@@ -29,6 +29,7 @@ public class findMinProdSum {
         if (l == r) {
             newArr[l] = arr[s];
         }
+        System.out.println(Arrays.toString(newArr));
         return findSum(newArr);
     }
 

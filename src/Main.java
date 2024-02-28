@@ -4,7 +4,7 @@ import TIKTOK.findMinProdSum;
 // 然后按 Enter 键。现在，您可以在代码中看到空格字符。
 public class Main {
     public static void main(String[] args) {
-        int[] testcase = {6, 2, 8, 6, 4};
+        int[] testcase = {1, 3, 5, 7, 9};
 //        int[] testcase = {2, 4, 10, 9, 3};
 //        int[] testcase = {1, 5, 9, 4, 10};
         // 按 Shift+F9 开始调试代码。我们已为您设置了一个断点，
