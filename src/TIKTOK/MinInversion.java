@@ -51,4 +51,31 @@ public class MinInversion {
 
         return ban; // 返回最小成本和最优解X
     }
+    /*#include <bits/stdc++.h>
+using namespace std;
+#define ll long long
+const int maxn=5e6+5,maxm=2e4+5,inf=0x3f3f3f3f,mod=1e9+7;
+int ch[maxn][2],sz[maxn],id,n;
+ll dp[30][2];
+void add(int x){
+    int p=0;
+    for(int i=29;~i;i--){
+        int v=(x>>i)&1;
+        if(!ch[p][v])ch[p][v]=++id;
+        dp[i][v^1]+=sz[ch[p][v^1]];
+        p=ch[p][v],sz[p]++;
+    }
+}
+int main(){
+    cin>>n;
+    for(int i=1;i<=n;i++){
+        int x;cin>>x;add(x);
+    }
+    ll cnt=0,ans=0;
+    for(int i=29;~i;i--){
+        if(dp[i][0]<dp[i][1])ans+=(1<<i),cnt+=dp[i][0];
+        else cnt+=dp[i][1];
+    }
+    printf("%lld %lld\n",cnt,ans);
+}*/
 }
