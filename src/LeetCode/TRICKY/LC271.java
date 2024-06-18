@@ -1,4 +1,4 @@
-package LeetCode;
+package LeetCode.TRICKY;
 
 import java.util.ArrayList;
 import java.util.List;
