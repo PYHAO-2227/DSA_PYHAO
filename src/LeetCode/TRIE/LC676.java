@@ -3,83 +3,61 @@ package LeetCode.TRIE;
 import java.util.Arrays;
 
 public class LC676 {
-
-    private final class TrieNode {
-        public int val;
-        public TrieNode[] children;
-        public boolean isWord;
-        public boolean isRoot;
-
-        public TrieNode(boolean isRoot) {
-            this.isRoot = isRoot;
-            this.val = 0;
-            children = new TrieNode[26];
-            Arrays.fill(children, null);
-            this.isWord = false;
-        }
-
-        public TrieNode(int val) {
-            this.val = val;
-            children = new TrieNode[26];
-            Arrays.fill(children, null);
-            this.isWord = false;
-            this.isRoot = false;
-        }
-
-        public void addWord(TrieNode root, String word) {
-            TrieNode curr = root;
-            for (int i = 0; i < word.length(); i++) {
-                int index = word.charAt(i) - 'a';
-                if (curr.children[index] == null) {
-                    curr.children[index] = new TrieNode(index);
-                }
-                curr = curr.children[index];
-            }
-            curr.isWord = true;
+    static class Trie {
+        boolean isEnd;
+        Trie[] children;
+        Trie() {
+            this.isEnd = false;
+            this.children = new Trie[26];
         }
     }
+    private final Trie root;
 
-    TrieNode root;
+    private void add (String s) {
+        Trie cur = root;
+        for (char c : s.toCharArray()) {
+            int idx = c - 'a';
+            if (cur.children[idx] == null) cur.children[idx] = new Trie();
+            cur = cur.children[idx];
+        }
+        cur.isEnd = true;
+    }
+
+    private boolean dfs(Trie node, String s, int start, int change) {
+        if (change > 1) return false;
+
+        if (start == s.length()) {
+            return node.isEnd && change == 1;
+        }
+
+        char cur = s.charAt(start);
+        int idx = cur - 'a';
+        if (node.children[idx] != null) {
+            if (dfs(node.children[idx], s, start + 1, change)) return true;
+        }
+
+        if (change < 1) {
+            for (Trie nxt : node.children) {
+                if (nxt == null || nxt == node.children[idx]) continue;
+                if (dfs(nxt, s, start + 1, change + 1)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 
     public LC676() {
-        root = new TrieNode(true);
+        root = new Trie();
     }
 
     public void buildDict(String[] dictionary) {
-        for (String word : dictionary) {
-            root.addWord(this.root, word);
+        for (String s : dictionary) {
+            add(s);
         }
     }
 
     public boolean search(String searchWord) {
-        return dfs(searchWord, this.root, 0, 0);
-    }
-
-    public boolean dfs(String searchWord, TrieNode node, int index, int charsChanged) {
-        if (index == searchWord.length()) {
-            return node.isWord && charsChanged == 1; // Ensure we've made at most one change
-        }
-
-        TrieNode currIndexNode = node.children[searchWord.charAt(index) - 'a'];
-
-        // Continue with no change if the character matches
-        if (currIndexNode != null) {
-            if (dfs(searchWord, currIndexNode, index + 1, charsChanged)) {
-                return true;
-            }
-        }
-
-        // Allow one character change if not already changed
-        if (charsChanged < 1) {
-            for (TrieNode n : node.children) {
-                if (n != null && n != currIndexNode) { // Avoid re-checking the current node
-                    if (dfs(searchWord, n, index + 1, charsChanged + 1)) {
-                        return true;
-                    }
-                }
-            }
-        }
-
-        return false;
+        return dfs(root, searchWord, 0, 0);
     }
 }
